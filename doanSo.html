@@ -6,23 +6,25 @@
 </head>
 <body>
     <script>
-        let arr = [11,22,33,44,12,34,25,57,4,3,8,65];
-        arr.sort(function(a, b){return a-b});
-        function binarySearch(arr, i) {
-            let mid = Math.floor(arr.length / 2);
-            if (arr[mid] === i) {
-                console.log("Tìm thấy "+i+" trong dãy");
-                return arr[mid];
-            } else if (arr[mid] < i && arr.length > 1) {
-                binarySearch(arr.splice(mid, Number.MAX_VALUE), i);
-            } else if (arr[mid] > i && arr.length > 1) {
-                binarySearch(arr.splice(0, mid), i);
-            } else {
-                console.log('Không tìm thấy ', i);
-                return -1;
+        let arr = [];
+        for (let j = 1; j <= 100;j++){
+            arr[j] = j;
+        }
+        function binarySearch(arr) {
+            let num = parseInt(prompt("Nhập vào số!"));
+            let mid = Math.floor(arr.indexOf(num));
+            if (34 === num) {
+                alert("You Win");
+            } else if (num < 34 && arr.length > 1) {
+                alert("Too Low");
+                binarySearch(arr.splice(mid, Number.MAX_VALUE), num);
+            } else if (num > 34 && arr.length > 1) {
+                alert("Too High");
+                binarySearch(arr.splice(0, mid), num);
             }
         }
-        binarySearch(arr,22);
+        binarySearch(arr);
+
     </script>
 </body>
 </html>
